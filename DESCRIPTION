@@ -1,0 +1,25 @@
+Package: iLipidome
+Type: Package
+Title: Lipidomics data analysis in the context of the lipid biosynthetic network.
+Version: 0.1.0
+Author: Wen-Jen Lin, Austin W.T. Chiang, Chenguang Liang, Wen-Lung Ma, Wei-Chung Cheng, Nathan E. Lewis
+Maintainer: Evanston H. Zhou <ehzhou@ucsd.edu>
+Description: Numerous biological processes and diseases are influenced by lipid
+    composition. Advances in lipidomics are elucidating their roles, but 
+    analyzing and interpreting lipidomics data at the systems level remain 
+    challenging. To address this, we present iLipidome, a method for analyzing 
+    lipidomics data in the context of the lipid biosynthetic network, thus 
+    accounting for the interdependence of measured lipids. iLipidome enhances 
+    statistical power, enables reliable clustering and lipid enrichment 
+    analysis, and links lipidomic changes to their genetic origins. We applied 
+    iLipidome to investigate mechanisms driving changes in cellular lipidomes 
+    following supplementation of docosahexaenoic acid (DHA) and successfully 
+    identified the genetic causes of alterations. We further demonstrated how 
+    iLipidome can disclose enzyme-substrate specificity and pinpoint prospective
+    glioblastoma therapeutic targets. Finally, iLipidome enabled us to explore 
+    underlying mechanisms of cardiovascular disease and could guide the 
+    discovery of early lipid biomarkers. Thus, iLipidome can assist researchers 
+    studying the essence of lipidomic data and advance the field of lipid 
+    biology.
+License: MIT
+Encoding: UTF-8
