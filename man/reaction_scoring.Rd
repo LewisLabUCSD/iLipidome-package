@@ -10,7 +10,6 @@ reaction_scoring(
   sub_t,
   ctrl = 1:7,
   exp = 8:13,
-  stat = "p",
   Species = "human"
 )
 }

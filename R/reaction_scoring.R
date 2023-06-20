@@ -15,7 +15,7 @@
 #' @return reaction scoring result table
 #' @export
 reaction_scoring <- function(network, sub_exp, sub_t, ctrl = 1:7,
-                             exp = 8:13, stat = "p", Species = "human") {
+                             exp = 8:13, Species = "human") {
   sub_exp <- sub_exp %>% apply(MARGIN = 1, FUN = function(x) {
     y <- x
     y[y == 0] <- min(y[y != 0]) * 0.5

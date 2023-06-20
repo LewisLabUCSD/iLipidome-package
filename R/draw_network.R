@@ -9,7 +9,7 @@
 #'  significant lipid features.
 #' @param path_scoring_result Pathway scoring result table. Output of 
 #'  "path_scoring".
-#' @param reaction_scoring_resul: Reaction scoring result table. Output of 
+#' @param reaction_scoring_result Reaction scoring result table. Output of 
 #'  "reaction_scoring".
 #' @param top_n 1 to 5 to label top N pathways and reactions.
 #' @param path_type "active", "suppressed", or "both" is used to select specific
