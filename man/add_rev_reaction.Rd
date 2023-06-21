@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_rev_reaction.R
 \name{add_rev_reaction}
 \alias{add_rev_reaction}
-\title{completes all reversible reactions in lipid species biosynthetic network}
+\title{Completes all reversible reactions in lipid species biosynthetic network}
 \usage{
 add_rev_reaction(network_edge, species_net)
 }
@@ -17,5 +17,5 @@ lipid biosynthetic network in iLipdiome.}
 Lipid species biosynthetic network with complete reversible reactions
 }
 \description{
-completes all reversible reactions in lipid species biosynthetic network
+Completes all reversible reactions in lipid species biosynthetic network
 }

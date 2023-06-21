@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_species_net.R
 \name{build_species_net}
 \alias{build_species_net}
-\title{uses species substructures to contruct lipid biosynthetic network}
+\title{Construct lipid biosynthetic network}
 \usage{
 build_species_net(species_substructure)
 }
@@ -13,5 +13,5 @@ build_species_net(species_substructure)
 lipid species biosynthetic network
 }
 \description{
-uses species substructures to contruct lipid biosynthetic network
+Uses species substructures to construct lipid biosynthetic network
 }

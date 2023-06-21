@@ -1,4 +1,6 @@
-#' decomposes FAs into FA substructures based on the FA biosynthetic network.
+#' Decomposes FAs into FA substructures
+#' 
+#' Decomposes FAs into FA substructures based on the FA biosynthetic network.
 #' 
 #' @param FA_network Trimmed FA biosynthetic network. Output of "build_FA_net".
 #' @param unprocessed_data_result Differential expression for unprocessed 
@@ -8,6 +10,11 @@
 #'  network (e.g., 20:4;0 for w6-20:4;0 and w3-20:4;0). 
 #'  
 #' @return FA substructure table
+#' 
+#' @importFrom dplyr bind_rows
+#' @importFrom igraph all_simple_paths
+#' @importFrom igraph graph_from_data_frame
+#' 
 #' @export
 FA_sub_transform <- function(FA_network, unprocessed_data_result,
                              unmapped_FA = NULL) {

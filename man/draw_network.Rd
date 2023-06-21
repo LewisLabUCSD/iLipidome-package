@@ -2,8 +2,7 @@
 % Please edit documentation in R/draw_network.R
 \name{draw_network}
 \alias{draw_network}
-\title{build biosynthetic network using substructures, pathway and reaction scoring
-results}
+\title{Build biosynthetic network}
 \usage{
 draw_network(
   network_data,
@@ -42,6 +41,6 @@ types of top N pathways and reactions.}
 biosynthetic network node
 }
 \description{
-build biosynthetic network using substructures, pathway and reaction scoring
+Build biosynthetic network using substructures, pathway and reaction scoring
 results
 }

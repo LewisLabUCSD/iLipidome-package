@@ -28,6 +28,7 @@ Imports:
     gplots (>= 3.1.1),
     gtools (>= 3.9.2),
     igraph (>= 1.2.6),
+    plyr,
     purrr (>= 0.3.4),
     stringr (>= 1.4.0),
     visNetwork (>= 2.1.0),

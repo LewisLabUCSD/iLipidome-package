@@ -2,7 +2,7 @@
 % Please edit documentation in R/t_test.R
 \name{t_test}
 \alias{t_test}
-\title{performs t-test}
+\title{t-test}
 \usage{
 t_test(data, ctrl, exp, method = "t.test", significant = "p_value")
 }
@@ -28,5 +28,5 @@ significant lipid features.}
 statistical results table
 }
 \description{
-performs t-test
+t-test
 }

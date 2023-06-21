@@ -2,7 +2,7 @@
 % Please edit documentation in R/lipid_sub_matrix.R
 \name{lipid_sub_matrix}
 \alias{lipid_sub_matrix}
-\title{converts expression of FAs to expression of FA substructures.}
+\title{Converts expression of FAs to expression of FA substructures.}
 \usage{
 lipid_sub_matrix(exp_data, sub_data, sub_type = "species")
 }
@@ -18,5 +18,5 @@ substructure.}
 FA substructure matrix encoding the frequency of each substructure
 }
 \description{
-converts expression of FAs to expression of FA substructures.
+Converts expression of FAs to expression of FA substructures.
 }

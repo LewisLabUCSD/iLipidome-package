@@ -1,4 +1,6 @@
-#' transforms lipid expression table (“exp”) into two iLipidome inputs: 
+#' Transforms lipid expression table
+#' 
+#' Transforms lipid expression table (“exp”) into two iLipidome inputs: 
 #'  selected lipid expression table (“exp_sel”) and 
 #'  selected lipid characteristics table (“char_sel”).
 #'
@@ -10,6 +12,16 @@
 #'  
 #' @return list containing selected lipid expression table and selected lipid 
 #'  characteristics table
+#'  
+#' @importFrom dplyr left_join
+#' @importFrom purrr map
+#' @importFrom purrr map_chr
+#' @importFrom purrr map_int
+#' @importFrom stringr str_c
+#' @importFrom stringr str_extract
+#' @importFrom stringr str_extract_all
+#' @importFrom stringr str_sub
+#' 
 #' @export
 build_char_table <- function(raw_data, network_node) {
   class <- raw_data$feature %>% str_extract("[A-Za-z]+( O-)*")

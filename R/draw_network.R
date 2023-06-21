@@ -1,4 +1,6 @@
-#' build biosynthetic network using substructures, pathway and reaction scoring 
+#' Build biosynthetic network
+#' 
+#' Build biosynthetic network using substructures, pathway and reaction scoring 
 #'  results
 #' 
 #' @param network_data Trimmed FA biosynthetic network. Output of "build_FA_net"
@@ -16,6 +18,11 @@
 #'  types of top N pathways and reactions.
 #'  
 #' @return biosynthetic network node
+#' 
+#' @importFrom dplyr arrange
+#' @importFrom dplyr recode
+#' @importFrom gplots bluered
+#' 
 #' @export
 draw_network <- function(network_data, DE_data, if_species = F, 
                          significant = "p_value", path_scoring_result, 

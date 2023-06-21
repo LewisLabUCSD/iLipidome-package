@@ -1,4 +1,5 @@
-#' converts expression of FAs to expression of FA substructures.
+#' Converts expression of FAs to expression of FA substructures.
+#' 
 #' @param exp_data Lipid expression table. Output of "build_char_table".
 #' @param sub_data Extracted substructure data. Output of "FA_sub_extract".
 #' @param sub_type "FA", "Class", or "Species" to indicate which type of 

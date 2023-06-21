@@ -2,9 +2,7 @@
 % Please edit documentation in R/build_char_table.R
 \name{build_char_table}
 \alias{build_char_table}
-\title{transforms lipid expression table (“exp”) into two iLipidome inputs:
-selected lipid expression table (“exp_sel”) and
-selected lipid characteristics table (“char_sel”).}
+\title{Transforms lipid expression table}
 \usage{
 build_char_table(raw_data, network_node)
 }
@@ -21,7 +19,7 @@ list containing selected lipid expression table and selected lipid
 characteristics table
 }
 \description{
-transforms lipid expression table (“exp”) into two iLipidome inputs:
+Transforms lipid expression table (“exp”) into two iLipidome inputs:
 selected lipid expression table (“exp_sel”) and
 selected lipid characteristics table (“char_sel”).
 }

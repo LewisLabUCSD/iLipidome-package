@@ -1,4 +1,4 @@
-#' completes all reversible reactions in lipid species biosynthetic network
+#' Completes all reversible reactions in lipid species biosynthetic network
 #' 
 #' @param network_edge A data.frame recording edge information of the reference 
 #'  lipid biosynthetic network in iLipdiome.
@@ -6,6 +6,13 @@
 #'  "build_species_net".
 #'  
 #' @return Lipid species biosynthetic network with complete reversible reactions
+#' 
+#' @importFrom dplyr %>%
+#' @importFrom dplyr filter
+#' @importFrom purrr map2
+#' @importFrom purrr map_lgl
+#' @importFrom stringr str_split
+#' 
 #' @export
 add_rev_reaction <- function(network_edge, species_net) {
   rev_reaction <- network_edge %>%

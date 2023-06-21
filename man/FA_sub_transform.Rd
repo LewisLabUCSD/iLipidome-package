@@ -2,7 +2,7 @@
 % Please edit documentation in R/FA_sub_transform.R
 \name{FA_sub_transform}
 \alias{FA_sub_transform}
-\title{decomposes FAs into FA substructures based on the FA biosynthetic network.}
+\title{Decomposes FAs into FA substructures}
 \usage{
 FA_sub_transform(FA_network, unprocessed_data_result, unmapped_FA = NULL)
 }
@@ -20,5 +20,5 @@ network (e.g., 20:4;0 for w6-20:4;0 and w3-20:4;0).}
 FA substructure table
 }
 \description{
-decomposes FAs into FA substructures based on the FA biosynthetic network.
+Decomposes FAs into FA substructures based on the FA biosynthetic network.
 }
