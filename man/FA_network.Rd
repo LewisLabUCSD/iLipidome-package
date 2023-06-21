@@ -3,22 +3,25 @@
 \docType{data}
 \name{FA_network}
 \alias{FA_network}
-\title{Dataset FA network}
+\title{Dataset Reference fatty acid network}
 \format{
-dataframe with x rows and y vars
+A dataframe with 51 rows and 5 variables
 \describe{
-\item{row1}{description 1}
-\item{row2}{description 2}
+\item{S1}{fatty acid substrate}
+\item{P1}{fatty acid product}
+\item{S1_detail}{fatty acid substrate with double bond specification}
+\item{P1_detail}{fatty acid product with double bond specification}
+\item{pathway}{fatty acid pathway}
 }
 }
 \source{
-{URL or created in house}
+{Created in-house}
 }
 \usage{
 FA_network
 }
 \description{
-Contains FA network data
+Contains the reference fatty acid  network data
 }
 \examples{
 data(FA_network)

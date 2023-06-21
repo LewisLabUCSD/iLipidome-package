@@ -1,60 +1,38 @@
 ---
 title: "iLipidome"
 author: "WJ Lin"
-date: "12/31/2022"
+date: "06/21/2023"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
- <font size="4"> Here, we present iLipidome, a method for analyzing lipidomics data in the context of the lipid biosynthetic network, thus accounting for the interdependence of measured lipids. Currently, iLipidome only supports "two-group comparison", enabling users to identify essential altered lipid pathways and link lipidomic changes to their genetic origins. Further, it enhances statistical power and enables reliable clustering and lipid enrichment analysis. This tutorial describes a series of iLipidome functions to facilitate systems-level comparison of lipid profiles using a novel substructure-based approach. We hope it can provide researchers a deeper insight into complex lipidomic alterations across samples.</font> 
 
-
-
-
-## Source function and load required data
- <font size="3"> Required function and data files can be found in the  "Required_function" and "Required_data" folder, respectively.</font>
- 
-```{r Source function and load required data}
-file <- dirname(rstudioapi::getSourceEditorContext()$path)
-
-# Source function
-suppressWarnings(suppressPackageStartupMessages(source(file.path(file,'required_function.R'))))
-
-# Load required data
-load(file.path(file,'required_data.RData'))
-
+```{r setup}
+library(dplyr)
+library(visNetwork)
+library(stringr)
+library(iLipidome)
 ```
+
+<font size="4"> Here, we present iLipidome, a method for analyzing lipidomics data in the context of the lipid biosynthetic network, thus accounting for the interdependence of measured lipids. Currently, iLipidome only supports "two-group comparison", enabling users to identify essential altered lipid pathways and link lipidomic changes to their genetic origins. Further, it enhances statistical power and enables reliable clustering and lipid enrichment analysis. This tutorial describes a series of iLipidome functions to facilitate systems-level comparison of lipid profiles using a novel substructure-based approach. We hope it can provide researchers a deeper insight into complex lipidomic alterations across samples.</font>
 
 ## Upload lipidomics data
 
- <font size="3"> iLipidome only requires users to upload one processed lipid expression table (data.frame) where lipids are rows and samples are columns for analysis. Lipid names should be in the first column named as "feature", and sample names are in the first row (see example below).  At least two samples in each group are required to calculate statistics. Also, data processing or normalization methods, such as missing value imputation or log transformation, may be required based on data source to achieve better results before analysis.
+<font size="3"> iLipidome only requires users to upload one processed lipid expression table (data.frame) where lipids are rows and samples are columns for analysis. Lipid names should be in the first column named as "feature", and sample names are in the first row (see example below). At least two samples in each group are required to calculate statistics. Also, data processing or normalization methods, such as missing value imputation or log transformation, may be required based on data source to achieve better results before analysis.
 
 Lipid names can be represented as:\
-1. <span style="color:red">[LipidClass]</span>\_<span style="color:blue">[sum of FA chain length]</span>
-<span style="font-weight:bold">:</span>
-<span style="color:#FF8000">[sum of FA double bonds]</span>
-<span style="font-weight:bold">;</span>
-<span style="color:green">[sum of FA oxygens]</span>\
-e.g., <span style="color:red">PC</span>\_<span style="color:blue">34</span><span style="font-weight:bold">:</span><span style="color:#FF8000">1</span><span style="font-weight:bold">;</span><span style="color:green">0</span> or 
-<span style="color:red">TAG</span>\_<span style="color:blue">52</span><span style="font-weight:bold">:</span><span style="color:#FF8000">1</span><span style="font-weight:bold">;</span><span style="color:green">0</span> when the exact identity of FAs is unknown.\
-2. <span style="color:red">[LipidClass]</span>\_<span style="color:blue">[FA1 chain length]</span>
-<span style="font-weight:bold">:</span>
-<span style="color:#FF8000">[FA1 double bonds]</span>
-<span style="font-weight:bold">;</span>
-<span style="color:green">[FA1 oxygens]</span>\_<span style="color:blue">[FA2 chain length]</span>
-<span style="font-weight:bold">:</span>
-<span style="color:#FF8000">[FA2 double bonds]</span>
-<span style="font-weight:bold">;</span>
-<span style="color:green">[FA2 oxygens]</span>...\
-e.g., <span style="color:red">PC</span>\_<span style="color:blue">16</span><span style="font-weight:bold">:</span><span style="color:#FF8000">0</span><span style="font-weight:bold">;</span><span style="color:green">0</span>\_<span style="color:blue">18</span><span style="font-weight:bold">:</span><span style="color:#FF8000">1</span><span style="font-weight:bold">;</span><span style="color:green">0</span> or 
-<span style="color:red">TAG</span>\_<span style="color:blue">16</span><span style="font-weight:bold">:</span><span style="color:#FF8000">0</span><span style="font-weight:bold">;</span><span style="color:green">0</span>\_<span style="color:blue">18</span><span style="font-weight:bold">:</span><span style="color:#FF8000">0</span><span style="font-weight:bold">;</span><span style="color:green">0</span>\_<span style="color:blue">18</span><span style="font-weight:bold">:</span><span style="color:#FF8000">1</span><span style="font-weight:bold">;</span><span style="color:green">0</span> when the exact identity of FAs is known.
+1. [[LipidClass]]{style="color:red"}\_[[sum of FA chain length]]{style="color:blue"} [:]{style="font-weight:bold"} [[sum of FA double bonds]]{style="color:#FF8000"} [;]{style="font-weight:bold"} [[sum of FA oxygens]]{style="color:green"}\
+e.g., [PC]{style="color:red"}\_[34]{style="color:blue"}[:]{style="font-weight:bold"}[1]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"} or [TAG]{style="color:red"}\_[52]{style="color:blue"}[:]{style="font-weight:bold"}[1]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"} when the exact identity of FAs is unknown.\
+2. [[LipidClass]]{style="color:red"}\_[[FA1 chain length]]{style="color:blue"} [:]{style="font-weight:bold"} [[FA1 double bonds]]{style="color:#FF8000"} [;]{style="font-weight:bold"} [[FA1 oxygens]]{style="color:green"}\_[[FA2 chain length]]{style="color:blue"} [:]{style="font-weight:bold"} [[FA2 double bonds]]{style="color:#FF8000"} [;]{style="font-weight:bold"} [[FA2 oxygens]]{style="color:green"}...\
+e.g., [PC]{style="color:red"}\_[16]{style="color:blue"}[:]{style="font-weight:bold"}[0]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"}\_[18]{style="color:blue"}[:]{style="font-weight:bold"}[1]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"} or [TAG]{style="color:red"}\_[16]{style="color:blue"}[:]{style="font-weight:bold"}[0]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"}\_[18]{style="color:blue"}[:]{style="font-weight:bold"}[0]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"}\_[18]{style="color:blue"}[:]{style="font-weight:bold"}[1]{style="color:#FF8000"}[;]{style="font-weight:bold"}[0]{style="color:green"} when the exact identity of FAs is known.
 
 Supported lipid classes, abbreviations, and corresponding FA numbers can be found in the "supported_lipid_class.csv" file. Note that lipid classes with same FA numbers (e.g., PC, PE) in same pathways (e.g., Glycerophospholipid) should have consistent lipid naming format (e.g., PC_36:0;0 and PE_34:0;0 or PC_18:0;0_18:0;0 and PE_16:0;0_18:0;0). Further, dihydrosphingolipids (dh-) specify the sphingolipids with sphingoid bases of 18:0:2 instead of 18:1:2.</font>
 
-
 ```{r Upload lipidomics data and process format}
+
+file <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 #Expression table of example lipidomics dataset
 exp <- read.csv(file.path(file, 'exp.csv'))
@@ -65,7 +43,7 @@ head(exp)
 
 ## Process data for iLipidome inputs
 
- <font size="3"> "build_char_table" transforms lipid expression table ("exp") into two iLipidome inputs: selected lipid expression table  ("exp_sel") and selected lipid characteristics table ("char_sel"). Note that it only considers the lipid classes recorded in the "network_node" table.</font>
+<font size="3"> "build_char_table" transforms lipid expression table ("exp") into two iLipidome inputs: selected lipid expression table ("exp_sel") and selected lipid characteristics table ("char_sel"). Note that it only considers the lipid classes recorded in the "network_node" table.</font>
 
 ```{r Upload lipidomics data and process format2}
 
@@ -85,7 +63,8 @@ head(char_sel)
 ```
 
 ## Analysis for unprocessed data
- <font size="3"> "unprocessed_data_test" uses the output of "build_char_table" to perform differential expression for three types of data: (1) lipid species, (2) fatty acids, and (3) lipid classes.</font>
+
+<font size="3"> "unprocessed_data_test" uses the output of "build_char_table" to perform differential expression for three types of data: (1) lipid species, (2) fatty acids, and (3) lipid classes.</font>
 
 ```{r Analysis for unprocessed data}
 
@@ -111,11 +90,13 @@ no_sub_t[[2]] %>% head()
 ```
 
 ## 1. FA substructure analysis
- <font size="3"> Here, we provide a step-by-step process to perform FA substructure analysis using the data above and a series of functions.</font>
+
+<font size="3"> Here, we provide a step-by-step process to perform FA substructure analysis using the data above and a series of functions.</font>
 
 ### 1-1. FA biosynthetic network transformation
- <font size="2"> Firstly, the reference FA biosynthetic network is trimmed by users' data.</font>
- 
+
+<font size="2"> Firstly, the reference FA biosynthetic network is trimmed by users' data.</font>
+
 ```{r FA substructure analysis 1}
 
 #FA_network: A data.frame describing the reference FA biosynthetic network in iLipdiome.
@@ -130,8 +111,9 @@ FA_network_new %>% head()
 ```
 
 ### 1-2. Decompose FAs into FA substructures
- <font size="2"> "FA_sub_transform" decomposes FAs into FA substructures based on the FA biosynthetic network.</font>
- 
+
+<font size="2"> "FA_sub_transform" decomposes FAs into FA substructures based on the FA biosynthetic network.</font>
+
 ```{r FA substructure analysis 2}
 
 #FA_network: Trimmed FA biosynthetic network. Output of "build_FA_net".
@@ -152,7 +134,8 @@ FA_substructure %>% head()
 ```
 
 ### 1-3. Extract FA substructures using fold changes
- <font size="2"> "FA_sub_extract" maps FA substructures in each pathway with fold changes from the "unprocessed_data_test" result and extracts them through a backpropagated process. Specifically, the checking process starts from the last substructure (target FA) and would not stop until it meets a substructure with an opposite fold change along the biosynthetic route. One exception is the endogenous biosynthesis pathway for FAs in the upstream of palmitate (e.g., 14:0 or 12:0). Since they are synthesized as a group (2:0 to 16:0), we do not check their fold change and keep all substructures.</font>
+
+<font size="2"> "FA_sub_extract" maps FA substructures in each pathway with fold changes from the "unprocessed_data_test" result and extracts them through a backpropagated process. Specifically, the checking process starts from the last substructure (target FA) and would not stop until it meets a substructure with an opposite fold change along the biosynthetic route. One exception is the endogenous biosynthesis pathway for FAs in the upstream of palmitate (e.g., 14:0 or 12:0). Since they are synthesized as a group (2:0 to 16:0), we do not check their fold change and keep all substructures.</font>
 
 ```{r FA substructure analysis 3}
 
@@ -162,10 +145,10 @@ FA_substructure %>% head()
 #exact_FA: "yes" or "no" to decide if the exact FA identity (e.g., w3 or w6) is known or not.
 #exo_lipid: An character vector specifying exogenous lipid addition. The exogenous lipids and their adjacent nodes in FA network will not be decomposed.
 
-FA_sub_stop <- FA_sub_extract(char_table = char_sel,
+FA_sub_stop <- suppressWarnings(FA_sub_extract(char_table = char_sel,
                               FA_substructure = FA_substructure,
                               unprocessed_data_result = no_sub_t,
-                              exact_FA='no', exo_lipid='w3-22:6;0')
+                              exact_FA='no', exo_lipid='w3-22:6;0'))
 
 #lipid species
 FA_sub_stop[[1]] %>% head()
@@ -178,8 +161,8 @@ FA_sub_stop[[2]] %>% head()
 
 ### 1-4. Transform FA exp into substructure exp
 
- <font size="2"> The function converts expression of FAs to expression of FA substructures.</font>
- 
+<font size="2"> The function converts expression of FAs to expression of FA substructures.</font>
+
 ```{r FA substructure analysis 4}
 
 #exp_data: Lipid expression table. Output of "build_char_table".
@@ -221,7 +204,7 @@ FA_sub_exp_t %>% head()
 
 ### 1-6. Essential pathway analysis for FA substructures
 
- <font size="2"> "path_scoring" use FA substructures to score pathways in FA biosynthetic network.</font>
+<font size="2"> "path_scoring" use FA substructures to score pathways in FA biosynthetic network.</font>
 
 ```{r FA substructure analysis 6}
 
@@ -242,7 +225,7 @@ path_score_FA %>% head()
 
 ### 1-7. Essential edges (reactions) analysis for FA substructures
 
- <font size="2"> "reaction_scoring" evaluates each reaction in FA biosynthetic network using FA substructures.</font>
+<font size="2"> "reaction_scoring" evaluates each reaction in FA biosynthetic network using FA substructures.</font>
 
 ```{r FA substructure analysis 7}
 
@@ -267,7 +250,7 @@ reaction_score_FA %>% head()
 
 ### 1-8. FA biosynthetic network construction
 
- <font size="2"> Build the FA biosynthetic network using FA substructures, pathway and reaction scoring results.</font>
+<font size="2"> Build the FA biosynthetic network using FA substructures, pathway and reaction scoring results.</font>
 
 ```{r FA substructure analysis 8}
 
@@ -301,15 +284,14 @@ visNetwork(FA_network_data[[1]],FA_network_data[[2]]) %>%
 
 ```
 
-
 ## 2. Lipid species substructure analysis
 
- <font size="3"> A similar approach can be used to analyze lipid species substructures.</font>
+<font size="3"> A similar approach can be used to analyze lipid species substructures.</font>
 
 ### 2-1. Decompose lipids into species substructures
 
- <font size="2"> "species_sub_transform" decomposes lipids into species substructures based on the lipid biosynthetic network.</font>
- 
+<font size="2"> "species_sub_transform" decomposes lipids into species substructures based on the lipid biosynthetic network.</font>
+
 ```{r Lipid species substructure analysis 1}
 
 #We excluded ether lipids since we cannot differentiate Alkyl (O-) or Alkenyl- (P-) linked ether lipids
@@ -332,7 +314,8 @@ species_substructure %>% head()
 ```
 
 ### 2-2. Extract species substructures using fold changes
- <font size="2"> "species_sub_extract" maps species substructures in each pathway with fold changes from the "unprocessed_data_test" result and extracts them through a backpropagated process. Specifically, the checking process starts from the last substructure (target species) and would not stop until it meets a substructure with an opposite fold change along the biosynthetic route.</font>
+
+<font size="2"> "species_sub_extract" maps species substructures in each pathway with fold changes from the "unprocessed_data_test" result and extracts them through a backpropagated process. Specifically, the checking process starts from the last substructure (target species) and would not stop until it meets a substructure with an opposite fold change along the biosynthetic route.</font>
 
 ```{r Lipid species substructure analysis 2}
 
@@ -359,8 +342,8 @@ species_sub_stop[[2]] %>% head()
 
 ### 2-3. Transform lipid exp into substructure exp
 
- <font size="2"> The function converts expression of lipid species to expression of species substructures.</font>
- 
+<font size="2"> The function converts expression of lipid species to expression of species substructures.</font>
+
 ```{r Lipid species substructure analysis 3}
 
 #exp_data: Lipid expression table.
@@ -398,7 +381,7 @@ species_sub_exp_t %>% head()
 
 ### 2-5. Lipid species biosynthetic network transformation
 
- <font size="2"> "build_species_net" uses species substructures to contruct lipid biosynthetic network.</font>
+<font size="2"> "build_species_net" uses species substructures to contruct lipid biosynthetic network.</font>
 
 ```{r Lipid species substructure analysis 5}
 
@@ -414,7 +397,7 @@ species_network %>% head()
 
 ### 2-6. Essential pathway analysis for species substructures
 
- <font size="2"> "path_scoring" use species substructures to score pathways in lipid species biosynthetic network.</font>
+<font size="2"> "path_scoring" use species substructures to score pathways in lipid species biosynthetic network.</font>
 
 ```{r Lipid species substructure analysis 6}
 
@@ -434,21 +417,21 @@ path_score_species %>% head()
 
 ### 2-7. Essential edges (reactions) analysis for species substructures
 
- <font size="2"> "add_rev_rection" completes all reversible reactions in lipid species biosynthetic network, where "reaction_scoring" evaluates each reaction using species substructures.</font>
+<font size="2"> "add_rev_reaction" completes all reversible reactions in lipid species biosynthetic network, where "reaction_scoring" evaluates each reaction using species substructures.</font>
 
 ```{r Lipid species substructure analysis 7}
 
 #network_edge: A data.frame recording edge information of the reference lipid biosynthetic network in iLipdiome.
 #species_net: Lipid species biosynthetic network. Output of "build_species_net".
 
-species_net_w_rev <- add_rev_rection(network_edge = network_edge,
+species_net_w_rev <- add_rev_reaction(network_edge = network_edge,
                                      species_net = species_network)
 
 #Lipid species biosynthetic network with complete reversible reactions
 species_net_w_rev %>% head()
 
 
-#network: Lipid species biosynthetic network with complete reversible reactions. Output of "add_rev_rection".
+#network: Lipid species biosynthetic network with complete reversible reactions. Output of "add_rev_reaction".
 
 reaction_score_species <- reaction_scoring(network = species_net_w_rev,
                                            sub_exp = species_sub_exp[[3]],
@@ -464,11 +447,11 @@ reaction_score_species %>% head()
 
 ### 2-8. Lipid species biosynthetic network construction
 
- <font size="2"> Build the lipid species biosynthetic network using species substructures, pathway and reaction scoring results.</font>
+<font size="2"> Build the lipid species biosynthetic network using species substructures, pathway and reaction scoring results.</font>
 
 ```{r Lipid species substructure analysis 8}
 
-#network_data: Lipid species biosynthetic network with complete reversible reactions. Output of "add_rev_rection".
+#network_data: Lipid species biosynthetic network with complete reversible reactions. Output of "add_rev_reaction".
 
 species_network_data <- draw_network(network_data = species_net_w_rev,
                                      DE_data = species_sub_exp_t,
@@ -490,7 +473,6 @@ visNetwork(species_network_data[[1]], species_network_data[[2]])
 
 
 ```
-
 
 ## 3. Lipid class substructure analysis
 
@@ -519,8 +501,8 @@ class_sub_stop[[2]] %>% head()
 
 ### 3-2. Transform lipid class exp into substructure exp
 
- <font size="2"> The function converts expression of lipid classes to expression of class substructures.</font>
- 
+<font size="2"> The function converts expression of lipid classes to expression of class substructures.</font>
+
 ```{r Lipid class substructure analysis 2}
 
 #Lipid class expression table.
@@ -561,7 +543,7 @@ class_sub_exp_t %>% head()
 
 ### 3-4. Lipid class biosynthetic network transformation
 
- <font size="2"> The reference lipid biosynthetic network in iLipdiome is trimmed by class substructures to build lipid class network.</font>
+<font size="2"> The reference lipid biosynthetic network in iLipdiome is trimmed by class substructures to build lipid class network.</font>
 
 ```{r Lipid class substructure analysis 4}
 
@@ -576,7 +558,7 @@ class_network %>% head()
 
 ### 3-5. Essential pathway analysis for species substructures
 
- <font size="2"> "path_scoring" use class substructures to score pathways in lipid class biosynthetic network.</font>
+<font size="2"> "path_scoring" use class substructures to score pathways in lipid class biosynthetic network.</font>
 
 ```{r Lipid class substructure analysis 5}
 
@@ -596,7 +578,7 @@ path_score_class %>% head()
 
 ### 3-6. Essential edges (reactions) analysis for species substructures
 
- <font size="2"> “reaction_scoring” evaluates each reaction in lipid class biosynthetic network using class substructures.</font>
+<font size="2"> "reaction_scoring" evaluates each reaction in lipid class biosynthetic network using class substructures.</font>
 
 ```{r Lipid class substructure analysis 6}
 
@@ -618,7 +600,7 @@ reaction_score_class %>% head()
 
 ### 3-7. Lipid class biosynthetic network construction
 
- <font size="2"> Build the lipid class biosynthetic network using class substructures, pathway and reaction scoring results.</font>
+<font size="2"> Build the lipid class biosynthetic network using class substructures, pathway and reaction scoring results.</font>
 
 ```{r Lipid class substructure analysis 7}
 
