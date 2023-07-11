@@ -13,17 +13,6 @@
 #'  
 #' @return extracted FA substructures
 #' 
-#' @importFrom dplyr %>%
-#' @importFrom dplyr add_row
-#' @importFrom dplyr filter
-#' @importFrom dplyr mutate
-#' @importFrom dplyr last
-#' @importFrom dplyr left_join
-#' @importFrom stringr str_c
-#' @importFrom stringr str_detect
-#' @importFrom stringr str_extract
-#' @importFrom stringr str_replace_all
-#' 
 #' @export
 FA_sub_extract <- function(char_table, FA_substructure,
                            unprocessed_data_result,

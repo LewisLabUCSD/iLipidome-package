@@ -6,11 +6,6 @@
 #' 
 #' @return lipid species biosynthetic network
 #' 
-#' @importFrom dplyr mutate
-#' @importFrom purrr map
-#' @importFrom stringr str_replace
-#' @importFrom utils head
-#' 
 #' @export
 build_species_net <- function(species_substructure) {
   species_network <- split(species_substructure[-1], seq(nrow(species_substructure)))

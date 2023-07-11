@@ -15,11 +15,6 @@
 #'  
 #' @return statistical results table
 #' 
-#' @importFrom stats p.adjust
-#' @importFrom stats sd
-#' @importFrom stats t.test
-#' @importFrom stats wilcox.test
-#' 
 #' @export
 t_test <- function(data, ctrl, exp, method='t.test', significant='p_value'){
   lipid <- character()

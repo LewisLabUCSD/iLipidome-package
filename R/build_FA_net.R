@@ -7,8 +7,6 @@
 #'  
 #' @return transformed fatty acid network
 #' 
-#' @importFrom stringr str_c
-#' 
 #' @export
 build_FA_net <- function(FA_network, unprocessed_data_result) {
   non_processed_data_result <- unprocessed_data_result

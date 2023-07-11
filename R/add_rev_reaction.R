@@ -7,12 +7,6 @@
 #'  
 #' @return Lipid species biosynthetic network with complete reversible reactions
 #' 
-#' @importFrom dplyr %>%
-#' @importFrom dplyr filter
-#' @importFrom purrr map2
-#' @importFrom purrr map_lgl
-#' @importFrom stringr str_split
-#' 
 #' @export
 add_rev_reaction <- function(network_edge, species_net) {
   rev_reaction <- network_edge %>%

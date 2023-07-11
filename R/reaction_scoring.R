@@ -14,12 +14,6 @@
 #'  
 #' @return reaction scoring result table
 #' 
-#' @importFrom dplyr arrange
-#' @importFrom dplyr desc
-#' @importFrom purrr map2_chr
-#' @importFrom stats t.test
-#' @importFrom stats p.adjust
-#' 
 #' @export
 reaction_scoring <- function(network, sub_exp, sub_t, ctrl = 1:7,
                              exp = 8:13, Species = "human") {

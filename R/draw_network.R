@@ -19,10 +19,6 @@
 #'  
 #' @return biosynthetic network node
 #' 
-#' @importFrom dplyr arrange
-#' @importFrom dplyr recode
-#' @importFrom gplots bluered
-#' 
 #' @export
 draw_network <- function(network_data, DE_data, if_species = F, 
                          significant = "p_value", path_scoring_result, 
@@ -196,7 +192,7 @@ draw_network <- function(network_data, DE_data, if_species = F,
     #
     edge <- data.frame(
       rank = 1:10, perturb_type = c(rep("Increase", 5), rep("Decrease", 5)),
-      fontsize = rep(rep(40, 5), 2),
+      fontsize = rep(seq(50, 20, length.out = 5), 2),
       fontcolor = c(rep("red", 5), rep("blue", 5))
     )
     if (nrow(topN_path) != 0) {
