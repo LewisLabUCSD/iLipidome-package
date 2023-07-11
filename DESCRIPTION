@@ -3,13 +3,15 @@ Type: Package
 Title: Lipidomics Data Analysis In The Context Of The Lipid Biosynthetic Network
 Version: 0.1.0
 Authors@R: c(
-    person("Wen-Jen", "Lin", email = "u104001424@cmu.edu.tw", role = c("aut", "cre")),
+    person("Wen-Jen", "Lin", email = "waxlos987@gmail.com", role = c("aut", "cre")),
     person("Austin W.T.", "Chiang", email = "austin.chiang@gmail.com", role = c("aut")),
+    person("Evanston H.", "Zhou", email = "ehzhou@ucsd.edu", role = c("aut")),
     person("Chenguang", "Liang", role = c("aut")),
+    person("Chia_Hsin", "Liu", role = c("aut")),
     person("Wen-Lung", "Ma", role = c("aut")),
     person("Wei-Chung", "Cheng", role = ("aut")),
     person("Nathan E.", "Lewis", email = "n4lewis@ucsd.edu", role = c("aut")))
-Maintainer: Wen-Jen Lin <u104001424@cmu.edu.tw>
+Maintainer: Wen-Jen Lin <waxlos987@gmail.com>
 BugReports: https://github.com/LewisLabUCSD/iLipidome-package/issues
 Description: Numerous biological processes and diseases are influenced by lipid
     composition. Advances in lipidomics are elucidating their roles, but 
