@@ -1,5 +1,4 @@
 ## How to install
 
-1. Download `iLipidome_0.1.0.tar.gz` file
-2. Run `install.package("<filepath>", repos=NULL, type="source")` in R
-3. Load the library with `library("iLipidome")`, and you are good to go!
+1. Make sure you have the `devtools` R package. If you do not already have it installed, install it using `install.packages("devtools")`.
+2. Run `devtools::install_github("LewisLabUCSD/iLipidome-package")` in R to install the iLipidome package, and you're done!
