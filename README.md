@@ -3,7 +3,6 @@
 - [Overview](#overview)
 - [How to install](#how-to-install)
 - [System Requirements](#system-requirements)
-- [Installation Guide](#installation-guide)
 - [Quick Example](#quick-example)
 - [License](#license)
 
@@ -29,6 +28,14 @@ The functions and example datasets have been tested on the following systems:
 The version information about R, the OS and attached or loaded packages for `iLipidome` are listed below.
 
 ![image](readme_fig/try.png)
+
+
+# Quick Example
+## Library iLipidome package 
+```{r Source function and load required data}
+library("iLipidome")
+
+```
 
 ## Upload lipidomics data
 iLipidome only requires users to upload a processed lipid expression table (data.frame) for analysis. The table should have lipids as rows and samples as columns. Lipid names should be placed in the first column, labeled as “feature”, and sample names should be in the first row. It is important to have a minimum of two samples in each group for accurate statistical calculations. Depending on the data source, preprocessing and normalization techniques like missing value imputation or log transformation may be necessary to improve analysis outcomes.
