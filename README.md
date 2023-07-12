@@ -37,7 +37,7 @@ Lipid names in the table can be represented in two formats:
 1. When the exact identity of FAs is unknown, the lipids can be represented using the following format:
 [LipidClassAbbreviation]_[sum of FA chain length] : [sum of FA double bonds] ; [sum of FA oxygens]
 For example, PC_34:1;0 or TAG_52:1;0
-2. When the exact identity of FAs is known, the lipids can be represented using the following format:
+3. When the exact identity of FAs is known, the lipids can be represented using the following format:
 [LipidClassAbbreviation]_[FA1 chain length] : [FA1 double bonds] ; [FA1 oxygens]_[FA2 chain length] : [FA2 double bonds] ; [FA2 oxygens]…
 For example, PC_16:0;0_18:1;0 or TAG_16:0;0_18:0;0_18:1;0
 
