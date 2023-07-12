@@ -137,11 +137,9 @@ FA_substructure_result[[3]] %>% head
 #Top 5 significant representative pathways
 FA_substructure_result[[4]] 
 
-
-
 ```
-
-
+![image](readme_fig_table/FA_analysis/Pathway_analysis_result_table.png)
+![image](readme_fig_table/FA_analysis/Top_5_significant_representative_pathways.png)
 
 ### 1-4. Reaction analysis results
  <font size="3"> In the 'Reaction analysis' section, the figure showcases the top 5 significant reactions within the network, where red and blue colors indicate an increase and decrease, respectively. A reaction is deemed significant if its p-value is below 0.05. These reactions are represented by substrate and product lipids, with red and blue text denoting the fold change of lipids. A comprehensive summary of all significant reactions is provided in the accompanying table. For a more detailed understanding of how we calculate reaction scores, please refer to the information in the iLipidome paper. </font>
@@ -154,10 +152,9 @@ FA_substructure_result[[5]] %>% head
 #Top 5 significant reactions
 FA_substructure_result[[6]] 
 
-
-
 ```
-
+![image](readme_fig_table/FA_analysis/Reaction_analysis_result_table.png)
+![image](readme_fig_table/FA_analysis/Top_5_significant_reactions.png)
 
 ### 1-5. Lipid network
  <font size="3"> In the 'Lipid network' section, we constructed the Fatty Acid Network and highlighted the top 5 significantly increased/decreased representative pathways and reactions. In the network visualization, red and blue colors indicate increase and decrease, respectively. The line width and color depth reflect the importance of pathways, while the text size represents the significance of reactions. Additionally, the nodes in the figure are filled based on the log2(fold change) values, and their sizes represent  −log10(adjusted p-value). If a node exhibits significant changes in abundance, its border will be highlighted in purple. It's important to note that for the Lipid Species Network, we only include the significant pathways that belong to the top 5 increased and decreased representative pathways to simplify the connections and enhance the clarity of the network visualization. </font>
@@ -172,9 +169,10 @@ FA_substructure_result[[8]] %>% head
 #Lipid network
 FA_substructure_result[[9]]
 
-
-
 ```
+![image](readme_fig_table/FA_analysis/Node_information_for_the_network.png)
+![image](readme_fig_table/FA_analysis/Edge_information_for_the_network.png)
+![image](readme_fig_table/FA_analysis/Lipid_network.png)
 
 ### 1-6. Modify lipid network
  <font size="3"> "add_reaction" and "delete_reaction" parameters allow users to add or delete the reactions in the network </font>
