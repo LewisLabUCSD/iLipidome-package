@@ -55,7 +55,10 @@ For example, PC_16:0;0_18:1;0 or TAG_16:0;0_18:0;0_18:1;0
 
 You can refer to the ‘supported_lipid_class.csv’ file for the supported lipid classes, their abbreviations, and the corresponding number of FAs. Note that when using the exact identity format of FAs, we will verify if the fatty acid numbers match those recorded in the ‘supported_lipid_class.csv’ file. If they do not match, the analysis will be interrupted. Also, lipid classes with the same number of FAs (e.g., PC, PE) in the same pathways (e.g., Glycerophospholipid) should have a consistent lipid naming format. For example, PC_36:0;0 and PE_34:0;0 or PC_18:0;0_18:0;0 and PE_16:0;0_18:0;0. Additionally, dihydrosphingolipids (dh-) specify sphingolipids with sphingoid bases of 18:0:2 instead of 18:1:2.
 
-[Download supported_lipid_class.csv](readme_fig_table/supported_lipid_class.csv)
+[Download supported lipid class](readme_fig_table/supported_lipid_class.csv)
+[Download example dataset 1](readme_fig_table/example_dataset1.csv)
+[Download example dataset 2](readme_fig_table/example_dataset2.csv)
+[Download example dataset 3](readme_fig_table/example_dataset3.csv)
 
 
 ```{r Upload lipidomics data and process format}
