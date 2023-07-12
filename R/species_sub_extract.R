@@ -17,6 +17,11 @@
 #'  
 #' @return lipid species
 #' 
+#' @importFrom dplyr arrange
+#' @importFrom dplyr everything
+#' @importFrom tidyr gather
+#' @importFrom tidyr spread
+#' 
 #' @export
 species_sub_extract <- function(lipid_substructure, unprocessed_data_result,
                                 type = "species", pct_limit = 0.3,

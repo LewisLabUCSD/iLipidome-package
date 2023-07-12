@@ -12,6 +12,15 @@
 #'  
 #' @return list containing selected lipid expression table and selected lipid 
 #'  characteristics table
+#'  
+#' @importFrom dplyr left_join
+#' @importFrom purrr map
+#' @importFrom purrr map_chr
+#' @importFrom purrr map_int
+#' @importFrom stringr str_c
+#' @importFrom stringr str_extract
+#' @importFrom stringr str_extract_all
+#' @importFrom stringr str_sub
 #' 
 #' @export
 build_char_table <- function(raw_data, network_node) {

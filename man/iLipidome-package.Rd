@@ -16,12 +16,14 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Wen-Jen Lin \email{u104001424@cmu.edu.tw}
+\strong{Maintainer}: Wen-Jen Lin \email{waxlos987@gmail.com}
 
 Authors:
 \itemize{
   \item Austin W.T. Chiang \email{austin.chiang@gmail.com}
+  \item Evanston H. Zhou \email{ehzhou@ucsd.edu}
   \item Chenguang Liang
+  \item Chia_Hsin Liu
   \item Wen-Lung Ma
   \item Wei-Chung Cheng
   \item Nathan E. Lewis \email{n4lewis@ucsd.edu}

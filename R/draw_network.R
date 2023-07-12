@@ -19,6 +19,10 @@
 #'  
 #' @return biosynthetic network node
 #' 
+#' @importFrom dplyr arrange
+#' @importFrom dplyr recode
+#' @importFrom gplots bluered
+#' 
 #' @export
 draw_network <- function(network_data, DE_data, if_species = F, 
                          significant = "p_value", path_scoring_result, 

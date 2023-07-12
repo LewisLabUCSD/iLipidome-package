@@ -8,6 +8,15 @@
 #'  
 #' @return pathway scoring result table
 #' 
+#' @importFrom dplyr arrange
+#' @importFrom dplyr desc
+#' @importFrom dplyr everything
+#' @importFrom gtools permutations
+#' @importFrom purrr map_dbl
+#' @importFrom stats qnorm
+#' @importFrom stats sd
+#' @importFrom utils tail
+#' 
 #' @export
 path_scoring <- function(network, sub_t, calibrate = T, data_type = "FA") {
   options(scipen = 999)

@@ -18,6 +18,14 @@
 #'  
 #' @return list of expression tables
 #' 
+#' @importFrom dplyr everything
+#' @importFrom dplyr group_by
+#' @importFrom stats aggregate
+#' @importFrom stats as.formula
+#' @importFrom stats sd
+#' @importFrom stats t.test
+#' @importFrom stats wilcox.test
+#' 
 #' @export
 unprocessed_data_test <- function(exp_data, char_table, method='t.test',
                                   significant=p_value, ctrl_group, 

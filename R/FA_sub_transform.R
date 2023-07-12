@@ -11,6 +11,10 @@
 #'  
 #' @return FA substructure table
 #' 
+#' @importFrom dplyr bind_rows
+#' @importFrom igraph all_simple_paths
+#' @importFrom igraph graph_from_data_frame
+#' 
 #' @export
 FA_sub_transform <- function(FA_network, unprocessed_data_result,
                              unmapped_FA = NULL) {
