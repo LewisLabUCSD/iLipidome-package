@@ -68,6 +68,7 @@ example_dataset_LipidClass <- read.csv(file.path(file, 'Code/Documentation/exp.c
 example_dataset_LipidSpecies <- read.csv(file.path(file, 'web_function/exp2.csv'))
 
 head(example_dataset_FA)
+![image](readme_fig_table/FA_analysis/Dataset.png)
 
 ```
 
@@ -109,6 +110,7 @@ FA_substructure_result <-
                            add_reaction = NULL,
                            delete_reaction = NULL)
 
+![image](readme_fig_table/FA_analysis/Run.png)
 
 ```
 
