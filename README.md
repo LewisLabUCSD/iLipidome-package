@@ -356,7 +356,6 @@ Users can fine-tune these parameters to achieve optimal results.</font>
 
 ```{r lipid_species substructure analysis 1}
 
-
 lipid_species_substructure_result <- 
   lipid_species_substructure_analysis(example_dataset_LipidSpecies,
                                       method='t.test',
@@ -366,10 +365,9 @@ lipid_species_substructure_result <-
                                       add_reaction = NULL,
                                       delete_reaction =NULL)
 
-
 ```
 
-
+![image](readme_fig_table/lipid_species_analysis/a.png)
 
 ### 3-2. Differential expression results
 
@@ -384,9 +382,11 @@ lipid_species_substructure_result[[1]] %>% head
 #Volcano plot of differentially expressed substructures
 lipid_species_substructure_result[[2]]
 
-
-
 ```
+
+![image](readme_fig_table/lipid_species_analysis/b.png)
+![image](readme_fig_table/lipid_species_analysis/c.png)
+
 
 ### 3-3. Pathway analysis results
 <font size="3"> In the 'Pathway analysis' section, the figure showcases the top 5 significant representative pathways within the network. Increased pathways are highlighted in red, while decreased pathways are shown in blue. A pathway is considered significant if its score exceeds  1.96. The figure represents pathways using starting and ending lipids. Additionally, a comprehensive summary of all significant pathways can be found in the accompanying table. For a deeper understanding of how we calculate pathway scores, calibrate pathways, and select representative pathways, detailed information is available in the iLipidome paper. </font>
@@ -396,10 +396,12 @@ lipid_species_substructure_result[[2]]
 #Pathway analysis result table
 lipid_species_substructure_result[[3]] %>% head
 #Top 5 significant representative pathways
-lipid_species_substructure_result[[4]] 
+lipid_species_substructure_result[[4]]
 
 ```
 
+![image](readme_fig_table/lipid_species_analysis/d.png)
+![image](readme_fig_table/lipid_species_analysis/e.png)
 
 
 ### 3-4. Reaction analysis results
@@ -408,15 +410,15 @@ lipid_species_substructure_result[[4]]
   
 ```{r lipid_species substructure analysis 4}
 
-
 #Reaction analysis result table
 lipid_species_substructure_result[[5]] %>% head
 #Top 5 significant reactions
 lipid_species_substructure_result[[6]] 
 
-
 ```
 
+![image](readme_fig_table/lipid_species_analysis/f.png)
+![image](readme_fig_table/lipid_species_analysis/g.png)
 
 ### 3-5. Lipid network
 <font size="3"> In the 'Lipid network' section, we constructed the Lipid Species Network and highlighted the top 5 significantly increased/decreased representative pathways and reactions. In the network visualization, red and blue colors indicate increase and decrease, respectively. The line width and color depth reflect the importance of pathways, while the text size represents the significance of reactions. Additionally, the nodes in the figure are filled based on the log2(fold change) values, and their sizes represent  −log10(adjusted p-value). If a node exhibits significant changes in abundance, its border will be highlighted in purple. It's important to note that for the Lipid Species Network, we only include the significant pathways that belong to the top 5 increased and decreased representative pathways to simplify the connections and enhance the clarity of the network visualization. </font>
@@ -430,7 +432,8 @@ lipid_species_substructure_result[[8]] %>% head
 #Lipid network
 lipid_species_substructure_result[[9]]
 
-
-
 ```
 
+![image](readme_fig_table/lipid_species_analysis/h.png)
+![image](readme_fig_table/lipid_species_analysis/i.png)
+![image](readme_fig_table/lipid_species_analysis/j.png)
