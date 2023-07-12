@@ -16,4 +16,16 @@ This tutorial presents a series of ``iLipidome`` functions that facilitate a com
 1. Make sure you have the `devtools` R package. If you do not already have it installed, install it using `install.packages("devtools")`.
 2. Run `devtools::install_github("LewisLabUCSD/iLipidome-package")` in R to install the iLipidome package, and you're done!
 
+# System Requirements
+## Hardware requirements
+To run example datasets with iLipidome, you only need a standard computer with sufficient RAM and R software version 4.0.0 or higher installed.
+
+## Software requirements
+### OS Requirements
+The functions and example datasets have been tested on the following systems:
++ macOS: Ventura (13.0)
+
+### R Dependencies
+The version information about R, the OS and attached or loaded packages for `iLipidome` are listed below.
+
 
