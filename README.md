@@ -196,11 +196,9 @@ FA_substructure_result <-
 #Modified lipid network
 FA_substructure_result[[9]]
 
-
-
 ```
 
-
+![image](readme_fig_table/FA_analysis/Modified_lipid_network.png)
 
 
 ## 2. Lipid class substructure analysis
