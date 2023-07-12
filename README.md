@@ -28,4 +28,4 @@ The functions and example datasets have been tested on the following systems:
 ### R Dependencies
 The version information about R, the OS and attached or loaded packages for `iLipidome` are listed below.
 
-![image](try.png)
+![image](readme_fig/try.png)
