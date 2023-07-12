@@ -124,6 +124,8 @@ FA_substructure_result[[1]] %>% head
 FA_substructure_result[[2]]
 
 ```
+![image](readme_fig_table/FA_analysis/DE result table.png)
+![image](readme_fig_table/FA_analysis/DE volcano plot.png)
 
 ### 1-3. Pathway analysis results
  <font size="3"> In the 'Pathway analysis' section, the figure showcases the top 5 significant representative pathways within the network. Increased pathways are highlighted in red, while decreased pathways are shown in blue. A pathway is considered significant if its score exceeds  1.96. The figure represents pathways using starting and ending lipids. Additionally, a comprehensive summary of all significant pathways can be found in the accompanying table. For a deeper understanding of how we calculate pathway scores, calibrate pathways, and select representative pathways, detailed information is available in the iLipidome paper. </font>
