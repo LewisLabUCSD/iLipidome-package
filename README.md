@@ -27,7 +27,7 @@ The functions and example datasets have been tested on the following systems:
 ### R Dependencies
 The version information about R, the OS and attached or loaded packages for `iLipidome` are listed below.
 
-![image](readme_fig/try.png)
+![image](readme_fig_table/try.png)
 
 
 # Quick Example
@@ -51,11 +51,11 @@ For example, PC_34:1;0 or TAG_52:1;0
 
 For example, PC_16:0;0_18:1;0 or TAG_16:0;0_18:0;0_18:1;0
 
-![image](readme_fig/dataset_format.png)
+![image](readme_fig_table/dataset_format.png)
 
 You can refer to the ‘supported_lipid_class.csv’ file for the supported lipid classes, their abbreviations, and the corresponding number of FAs. Note that when using the exact identity format of FAs, we will verify if the fatty acid numbers match those recorded in the ‘supported_lipid_class.csv’ file. If they do not match, the analysis will be interrupted. Also, lipid classes with the same number of FAs (e.g., PC, PE) in the same pathways (e.g., Glycerophospholipid) should have a consistent lipid naming format. For example, PC_36:0;0 and PE_34:0;0 or PC_18:0;0_18:0;0 and PE_16:0;0_18:0;0. Additionally, dihydrosphingolipids (dh-) specify sphingolipids with sphingoid bases of 18:0:2 instead of 18:1:2.
 
-[click me to download](readme_fig/supported_lipid_class.csv)
+[click me to download supported_lipid_class.csv](readme_fig_table/supported_lipid_class.csv)
 
 
 ```{r Upload lipidomics data and process format}
