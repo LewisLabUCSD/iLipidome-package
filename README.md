@@ -68,10 +68,8 @@ example_dataset_LipidClass <- read.csv(file.path(file, 'Code/Documentation/exp.c
 example_dataset_LipidSpecies <- read.csv(file.path(file, 'web_function/exp2.csv'))
 
 head(example_dataset_FA)
-![image](readme_fig_table/FA_analysis/Dataset.png)
-
 ```
-
+![image](readme_fig_table/FA_analysis/Dataset.png)
 ## 1. FA substructure analysis
 
 
@@ -109,11 +107,8 @@ FA_substructure_result <-
                            exo_lipid='w3-22:6;0', species='rat',
                            add_reaction = NULL,
                            delete_reaction = NULL)
-
-![image](readme_fig_table/FA_analysis/Run.png)
-
 ```
-
+![image](readme_fig_table/FA_analysis/Run.png)
 
  
 ### 1-2. Differential expression analysis
@@ -127,7 +122,6 @@ FA_substructure_result[[1]] %>% head
 
 #Volcano plot of differentially expressed substructures
 FA_substructure_result[[2]]
-
 
 ```
 
