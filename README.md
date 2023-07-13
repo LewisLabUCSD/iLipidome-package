@@ -125,7 +125,7 @@ FA_substructure_result <-
 ```{r FA substructure analysis 2}
 
 #Differential expression result table
-FA_substructure_result[[1]] %>% head
+head(FA_substructure_result[[1]])
 
 #Volcano plot of differentially expressed substructures
 FA_substructure_result[[2]]
@@ -140,7 +140,7 @@ FA_substructure_result[[2]]
 ```{r FA substructure analysis 3}
 
 #Pathway analysis result table
-FA_substructure_result[[3]] %>% head
+head(FA_substructure_result[[3]])
 #Top 5 significant representative pathways
 FA_substructure_result[[4]] 
 
@@ -155,7 +155,7 @@ FA_substructure_result[[4]]
 ```{r FA substructure analysis 4}
 
 #Reaction analysis result table
-FA_substructure_result[[5]] %>% head
+head(FA_substructure_result[[5]])
 #Top 5 significant reactions
 FA_substructure_result[[6]] 
 
@@ -169,9 +169,9 @@ FA_substructure_result[[6]]
 ```{r FA substructure analysis 5}
 
 #Node information for the network
-FA_substructure_result[[7]] %>% head
+head(FA_substructure_result[[7]])
 #Edge information for the network
-FA_substructure_result[[8]] %>% head
+head(FA_substructure_result[[8]])
 #Lipid network
 FA_substructure_result[[9]]
 
@@ -252,7 +252,7 @@ lipid_class_substructure_result <-
 ```{r lipid_class substructure analysis 2}
 
 #Differential expression result table
-lipid_class_substructure_result[[1]] %>% head
+head(lipid_class_substructure_result[[1]])
 
 #Volcano plot of differentially expressed substructures
 lipid_class_substructure_result[[2]]
@@ -268,7 +268,7 @@ lipid_class_substructure_result[[2]]
 ```{r lipid_class substructure analysis 3}
 
 #Pathway analysis result table
-lipid_class_substructure_result[[3]] %>% head
+head(lipid_class_substructure_result[[3]])
 #Top 5 significant representative pathways
 lipid_class_substructure_result[[4]] 
 
@@ -283,7 +283,7 @@ lipid_class_substructure_result[[4]]
 ```{r lipid_class substructure analysis 4}
 
 #Reaction analysis result table
-lipid_class_substructure_result[[5]] %>% head
+head(lipid_class_substructure_result[[5]])
 #Top 5 significant reactions
 lipid_class_substructure_result[[6]] 
 
@@ -298,9 +298,9 @@ lipid_class_substructure_result[[6]]
 ```{r lipid_class substructure analysis 5}
 
 #Node information for the network
-lipid_class_substructure_result[[7]] %>% head
+head(lipid_class_substructure_result[[7]])
 #Edge information for the network
-lipid_class_substructure_result[[8]] %>% head
+head(lipid_class_substructure_result[[8]])
 #Lipid network
 lipid_class_substructure_result[[9]]
 
@@ -383,7 +383,7 @@ lipid_species_substructure_result <-
 ```{r lipid_species substructure analysis 2}
 
 #Differential expression result table
-lipid_species_substructure_result[[1]] %>% head
+head(lipid_species_substructure_result[[1]])
 
 #Volcano plot of differentially expressed substructures
 lipid_species_substructure_result[[2]]
@@ -400,7 +400,7 @@ lipid_species_substructure_result[[2]]
 ```{r lipid_species substructure analysis 3}
 
 #Pathway analysis result table
-lipid_species_substructure_result[[3]] %>% head
+head(lipid_species_substructure_result[[3]])
 #Top 5 significant representative pathways
 lipid_species_substructure_result[[4]]
 
@@ -417,7 +417,7 @@ lipid_species_substructure_result[[4]]
 ```{r lipid_species substructure analysis 4}
 
 #Reaction analysis result table
-lipid_species_substructure_result[[5]] %>% head
+head(lipid_species_substructure_result[[5]])
 #Top 5 significant reactions
 lipid_species_substructure_result[[6]] 
 
@@ -432,9 +432,9 @@ lipid_species_substructure_result[[6]]
 ```{r lipid_species substructure analysis 5}
 
 #Node information for the network
-lipid_species_substructure_result[[7]] %>% head
+head(lipid_species_substructure_result[[7]])
 #Edge information for the network
-lipid_species_substructure_result[[8]] %>% head
+head(lipid_species_substructure_result[[8]])
 #Lipid network
 lipid_species_substructure_result[[9]]
 
