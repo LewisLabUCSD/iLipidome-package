@@ -91,18 +91,18 @@ head(example_dataset_FA)
 4. exp: An integer vector specifying the samples in the experimental group within the lipid expression table.
 
 5. unmapped_FA: NULL or a character vector that allows users to specify which fatty acids (FAs) should be ignored. Users can refer to the "FA_network" S1 and P1 columns to identify and select specific fatty acid names. Due to limitations in mass spectrometry, precise double bond locations for fatty acids are often not available in lipidomics data. As a result, certain fatty acids may have multiple candidate mappings in the fatty acid network. However, some fatty acid isomers may be dominant, while others may be negligible. For exmaple, the major isomer of FA 20:4 is omega-6, not omega-3. Treating all isomers equally in the substructure calculation may not accurately reflect their true abundance. This parameter enables users to select low-expressed fatty acid isomers to exclude from decomposition into substructures within the fatty acid network, therefore improving the accuracy of calculations.
-[Download FA network](readme_fig_table/required_data/FA_network.csv)
+[See FA network](readme_fig_table/required_data/FA_network.csv)
 
 6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to the "FA_network" S1 and P1 columns to identify and select specific fatty acid names.
-[Download FA network](readme_fig_table/required_data/FA_network.csv)
+[See FA network](readme_fig_table/required_data/FA_network.csv)
 
 8. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
 
 9. add_reaction: NULL or a data frame consisting of three columns: "from", "to", and "pathway" to add the fatty acid reactions. The fatty acids in the "from" and "to" columns should adhere to the format [FA chain length]:[FA double bonds];[FA oxygens]. The prefixes "w9-", "w7-", "w6-", and "w3-" can also be included to provide information about the double bond position. The "pathway" column in the table can take one of the following values: "Non_essential_FA_synthesis", "Omega_6_FA_synthesis", "Omega_3_FA_synthesis", or "Unknown".
-[Download FA network](readme_fig_table/required_data/FA_network.csv)
+[See FA network](readme_fig_table/required_data/FA_network.csv)
 
 11. delete_reaction: NULL or a data frame consisting of two columns: "from" and "to" delete the fatty acid reactions. The fatty acids in the "from" and "to" columns should correspond to the fatty acids listed in the "FA_network" S1 and P1 columns.
-[Download FA network](readme_fig_table/required_data/FA_network.csv)
+[See FA network](readme_fig_table/required_data/FA_network.csv)
 
 Users can fine-tune these parameters to achieve optimal results.</font>
  
@@ -226,12 +226,13 @@ FA_substructure_result[[9]]
 4. exp: An integer vector specifying the samples in the experimental group within the lipid expression table.
 
 5. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "netowrk_node" Abbreviation columns to identify and select specific lipid class names.
+[See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-6. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
+7. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
 
-7. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
+8. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
 
-8. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
+9. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
   
 Users can fine-tune these parameters to achieve optimal results.</font>
 
