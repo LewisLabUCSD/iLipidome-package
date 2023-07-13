@@ -22,12 +22,12 @@ To run example datasets with iLipidome, you only need a standard computer with s
 ## Software requirements
 ### OS Requirements
 The functions and example datasets have been tested on the following systems:
-+ macOS: Ventura (13.0)
++ macOS: Ventura (13.4)
 
 ### R Dependencies
 The version information about R, the OS and attached or loaded packages for `iLipidome` are listed below.
 
-![image](readme_fig_table/try.png)
+![image](readme_fig_table/sessioninfo.png)
 
 
 # Quick Example
