@@ -139,3 +139,87 @@
 #' @examples
 #' data(reaction_gene_mapping)
 "reaction_gene_mapping"
+
+#' Dataset fatty acid exmaple dataset
+#'
+#' Contains the exmaple dataset for fatty acid substructure analysis
+#'
+#'@format A dataframe with 444 rows and 14 variables
+#' \describe{
+#'    \item{feature}{lipid name}
+#'    \item{Ctrl1}{sample 1}
+#'    \item{Ctrl2}{sample 2}
+#'    \item{Ctrl3}{sample 3}
+#'    \item{Ctrl4}{sample 4}
+#'    \item{Ctrl5}{sample 5}
+#'    \item{Ctrl6}{sample 6}
+#'    \item{Ctrl7}{sample 7}
+#'    \item{DHA1}{sample 8}
+#'    \item{DHA2}{sample 9}
+#'    \item{DHA3}{sample 10}
+#'    \item{DHA4}{sample 11}
+#'    \item{DHA5}{sample 12}
+#'    \item{DHA6}{sample 13}
+#'    }
+#' 
+#' @source {Lipidomic and biophysical homeostasis of mammalian membranes counteracts dietary lipid perturbations to maintain cellular fitness. Nat Commun 11, 1339 (2020). https://doi.org/10.1038/s41467-020-15203-1}
+#'
+#' @examples
+#' data(example_dataset_FA)
+"example_dataset_FA"
+
+#' Dataset lipid class exmaple dataset
+#'
+#' Contains the exmaple dataset for lipid class substructure analysis
+#'
+#'@format A dataframe with 444 rows and 14 variables
+#' \describe{
+#'    \item{feature}{lipid name}
+#'    \item{Ctrl1}{sample 1}
+#'    \item{Ctrl2}{sample 2}
+#'    \item{Ctrl3}{sample 3}
+#'    \item{Ctrl4}{sample 4}
+#'    \item{Ctrl5}{sample 5}
+#'    \item{Ctrl6}{sample 6}
+#'    \item{Ctrl7}{sample 7}
+#'    \item{DHA1}{sample 8}
+#'    \item{DHA2}{sample 9}
+#'    \item{DHA3}{sample 10}
+#'    \item{DHA4}{sample 11}
+#'    \item{DHA5}{sample 12}
+#'    \item{DHA6}{sample 13}
+#'    }
+#' 
+#' @source {Lipidomic and biophysical homeostasis of mammalian membranes counteracts dietary lipid perturbations to maintain cellular fitness. Nat Commun 11, 1339 (2020). https://doi.org/10.1038/s41467-020-15203-1}
+#'
+#' @examples
+#' data(example_dataset_LipidClass)
+"example_dataset_LipidClass"
+
+#' Dataset lipid species exmaple dataset
+#'
+#' Contains the exmaple dataset for lipid species substructure analysis
+#'
+#'@format A dataframe with 258 rows and 14 variables
+#' \describe{
+#'    \item{feature}{lipid name}
+#'    \item{Ctrl1}{sample 1}
+#'    \item{Ctrl2}{sample 2}
+#'    \item{Ctrl3}{sample 3}
+#'    \item{Ctrl4}{sample 4}
+#'    \item{Ctrl5}{sample 5}
+#'    \item{Ctrl6}{sample 6}
+#'    \item{Ctrl7}{sample 7}
+#'    \item{DHA1}{sample 8}
+#'    \item{DHA2}{sample 9}
+#'    \item{DHA3}{sample 10}
+#'    \item{DHA4}{sample 11}
+#'    \item{DHA5}{sample 12}
+#'    \item{DHA6}{sample 13}
+#'    }
+#' 
+#' @source {Lipidomic and biophysical homeostasis of mammalian membranes counteracts dietary lipid perturbations to maintain cellular fitness. Nat Commun 11, 1339 (2020). https://doi.org/10.1038/s41467-020-15203-1}
+#'
+#' @examples
+#' data(example_dataset_LipidSpecies)
+"example_dataset_LipidSpecies"
