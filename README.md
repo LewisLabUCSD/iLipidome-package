@@ -448,7 +448,7 @@ lipid_species_substructure_result[[9]]
 
 MIT License
 
-Copyright (c) 2012-2023 Scott Chacon and others
+Copyright (c) 2023 Wen-Jen Lin, Austin W.T. Chiang, Evanston H. Zhou and others
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
