@@ -7,6 +7,7 @@
 #' @return lipid species biosynthetic network
 #' 
 #' @importFrom dplyr mutate
+#' @importFrom magrittr %>%
 #' @importFrom purrr map
 #' @importFrom stringr str_replace
 #' @importFrom utils head

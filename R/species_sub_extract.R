@@ -19,6 +19,15 @@
 #' 
 #' @importFrom dplyr arrange
 #' @importFrom dplyr everything
+#' @importFrom dplyr filter
+#' @importFrom dplyr last
+#' @importFrom dplyr left_join
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
+#' @importFrom magrittr %>%
+#' @importFrom plyr ldply
+#' @importFrom purrr map_chr
+#' @importFrom stringr str_replace
 #' @importFrom tidyr gather
 #' @importFrom tidyr spread
 #' 

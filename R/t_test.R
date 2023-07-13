@@ -15,6 +15,7 @@
 #'  
 #' @return statistical results table
 #' 
+#' @importFrom magrittr %>%
 #' @importFrom stats p.adjust
 #' @importFrom stats sd
 #' @importFrom stats t.test

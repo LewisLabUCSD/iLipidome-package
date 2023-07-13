@@ -6,6 +6,12 @@
 #'  substructure.
 #'  
 #' @return FA substructure matrix encoding the frequency of each substructure 
+#' 
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
+#' @importFrom stringr str_detect
+#' @importFrom stringr str_replace
+#' 
 #' @export
 lipid_sub_matrix <- function(exp_data, sub_data,
                              sub_type = "species") {

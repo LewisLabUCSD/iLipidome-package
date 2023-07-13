@@ -7,8 +7,8 @@
 #'  
 #' @return Lipid species biosynthetic network with complete reversible reactions
 #' 
-#' @importFrom dplyr %>%
 #' @importFrom dplyr filter
+#' @importFrom magrittr %>%
 #' @importFrom purrr map2
 #' @importFrom purrr map_lgl
 #' @importFrom stringr str_split

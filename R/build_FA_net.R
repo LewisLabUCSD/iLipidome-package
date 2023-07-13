@@ -7,6 +7,8 @@
 #'  
 #' @return transformed fatty acid network
 #' 
+#' @importFrom dplyr filter
+#' @importFrom magrittr %>%
 #' @importFrom stringr str_c
 #' 
 #' @export

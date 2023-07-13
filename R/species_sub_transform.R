@@ -9,6 +9,19 @@
 #'  and related information.
 #'  
 #' @return lipid species substructure table
+#' 
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
+#' @importFrom magrittr %>%
+#' @importFrom plyr ldply
+#' @importFrom purrr map
+#' @importFrom stringr str_c
+#' @importFrom stringr str_detect
+#' @importFrom stringr str_extract
+#' @importFrom stringr str_extract_all
+#' @importFrom stringr str_replace
+#' @importFrom stringr str_split
+#' 
 #' @export
 species_sub_transform <- function(char, lipid_substructure, network_node) {
   char <- char %>% filter(class %in% lipid_substructure$Lipid)

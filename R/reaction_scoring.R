@@ -16,9 +16,20 @@
 #' 
 #' @importFrom dplyr arrange
 #' @importFrom dplyr desc
+#' @importFrom dplyr filter
+#' @importFrom dplyr left_join
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
+#' @importFrom magrittr %>%
+#' @importFrom purrr map_chr
 #' @importFrom purrr map2_chr
 #' @importFrom stats t.test
 #' @importFrom stats p.adjust
+#' @importFrom stringr str_c
+#' @importFrom stringr str_detect
+#' @importFrom stringr str_extract_all
+#' @importFrom stringr str_split
+#' @importFrom stringr str_sub
 #' 
 #' @export
 reaction_scoring <- function(network, sub_exp, sub_t, ctrl = 1:7,

@@ -12,8 +12,15 @@
 #' @return FA substructure table
 #' 
 #' @importFrom dplyr bind_rows
+#' @importFrom dplyr filter
+#' @importFrom dplyr last
 #' @importFrom igraph all_simple_paths
 #' @importFrom igraph graph_from_data_frame
+#' @importFrom magrittr %>%
+#' @importFrom plyr ldply
+#' @importFrom stringr str_c
+#' @importFrom stringr str_detect
+#' @importFrom stringr str_extract
 #' 
 #' @export
 FA_sub_transform <- function(FA_network, unprocessed_data_result,

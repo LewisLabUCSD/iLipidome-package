@@ -11,8 +11,15 @@
 #' @param delete_reaction delete a reaction
 #' 
 #' @import ggplot2
+#' 
+#' @importFrom dplyr arrange
+#' @importFrom dplyr filter
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
 #' @importFrom ggtext element_markdown
+#' @importFrom magrittr %>%
 #' @importFrom stats reorder
+#' @importFrom stringr str_split
 #' @importFrom visNetwork visIgraphLayout
 #' @importFrom visNetwork visNetwork
 #' 

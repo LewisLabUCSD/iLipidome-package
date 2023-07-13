@@ -14,6 +14,8 @@
 #'  characteristics table
 #'  
 #' @importFrom dplyr left_join
+#' @importFrom dplyr mutate
+#' @importFrom magrittr %>%
 #' @importFrom purrr map
 #' @importFrom purrr map_chr
 #' @importFrom purrr map_int

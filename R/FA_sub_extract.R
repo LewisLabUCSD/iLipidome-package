@@ -13,12 +13,13 @@
 #'  
 #' @return extracted FA substructures
 #' 
-#' @importFrom dplyr %>%
 #' @importFrom dplyr add_row
 #' @importFrom dplyr filter
 #' @importFrom dplyr mutate
 #' @importFrom dplyr last
 #' @importFrom dplyr left_join
+#' @importFrom dplyr select
+#' @importFrom magrittr %>%
 #' @importFrom stringr str_c
 #' @importFrom stringr str_detect
 #' @importFrom stringr str_extract

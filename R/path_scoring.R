@@ -11,10 +11,14 @@
 #' @importFrom dplyr arrange
 #' @importFrom dplyr desc
 #' @importFrom dplyr everything
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
 #' @importFrom gtools permutations
+#' @importFrom magrittr %>%
 #' @importFrom purrr map_dbl
 #' @importFrom stats qnorm
 #' @importFrom stats sd
+#' @importFrom stringr str_split
 #' @importFrom utils tail
 #' 
 #' @export

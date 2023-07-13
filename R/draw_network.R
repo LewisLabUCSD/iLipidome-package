@@ -20,8 +20,16 @@
 #' @return biosynthetic network node
 #' 
 #' @importFrom dplyr arrange
+#' @importFrom dplyr filter
+#' @importFrom dplyr left_join
+#' @importFrom dplyr mutate
 #' @importFrom dplyr recode
+#' @importFrom magrittr %>%
 #' @importFrom gplots bluered
+#' @importFrom purrr map_lgl
+#' @importFrom stringr str_detect
+#' @importFrom stringr str_c
+#' @importFrom stringr str_split
 #' 
 #' @export
 draw_network <- function(network_data, DE_data, if_species = F, 

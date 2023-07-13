@@ -19,12 +19,17 @@
 #' @return list of expression tables
 #' 
 #' @importFrom dplyr everything
+#' @importFrom dplyr filter
 #' @importFrom dplyr group_by
+#' @importFrom dplyr select
+#' @importFrom magrittr %>%
 #' @importFrom stats aggregate
 #' @importFrom stats as.formula
 #' @importFrom stats sd
 #' @importFrom stats t.test
 #' @importFrom stats wilcox.test
+#' @importFrom stringr str_c
+#' @importFrom stringr str_extract_all
 #' 
 #' @export
 unprocessed_data_test <- function(exp_data, char_table, method='t.test',

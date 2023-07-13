@@ -12,8 +12,18 @@
 #' @return list of tables and plots relevant to the analysis
 #' 
 #' @import ggplot2
+#' 
+#' @importFrom dplyr arrange
+#' @importFrom dplyr filter
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
 #' @importFrom ggtext element_markdown
+#' @importFrom igraph all_simple_paths
+#' @importFrom magrittr %>%
+#' @importFrom plyr ldply
 #' @importFrom stats reorder 
+#' @importFrom stringr str_c
+#' @importFrom stringr str_split
 #' @importFrom visNetwork visNetwork
 #' 
 #' @export
