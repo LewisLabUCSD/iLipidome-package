@@ -124,7 +124,7 @@ FA_substructure_result <-
 ![image](readme_fig_table/FA_analysis/Run.png)
 
  
-### 1-2. Differential expression analysis
+### 1-2. Differential expression results
 
  <font size="3">  In this section, we present the results of the differential expression analysis conducted on the substructure-transformed data. </font>
 
