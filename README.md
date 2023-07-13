@@ -58,7 +58,11 @@ You can refer to the ‘supported_lipid_class.csv’ file for the supported lipi
 
 [Download supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-[Download example dataset 1](readme_fig_table/example_dataset1.csv)
+[Download example dataset 1](readme_fig_table/example_dataset_FA.csv)
+
+[Download example dataset 1](readme_fig_table/example_dataset_LipidClass.csv)
+
+[Download example dataset 1](readme_fig_table/example_dataset_LipidSpecies.csv)
 
 [Download example dataset 2](readme_fig_table/example_dataset2.csv)
 
