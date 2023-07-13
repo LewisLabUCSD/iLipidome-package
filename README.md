@@ -225,15 +225,17 @@ FA_substructure_result[[9]]
 
 4. exp: An integer vector specifying the samples in the experimental group within the lipid expression table.
 
-5. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "netowrk_node" Abbreviation columns to identify and select specific lipid class names.
+5. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "supported_lipid_class" Abbreviation columns to identify and select specific lipid class names.
 [See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
 7. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
 
-8. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
+8. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+[See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-9. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
-  
+10. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+[See supported lipid class](readme_fig_table/supported_lipid_class.csv) 
+
 Users can fine-tune these parameters to achieve optimal results.</font>
 
 ```{r lipid_class substructure analysis 1}
@@ -355,14 +357,17 @@ lipid_class_substructure_result[[9]]
 
 5. non_missing_pct: A value between 0 and 1 to set the threshold for the percentage of non-missing values in a biosynthetic pathway. Increasing this value will result in fewer biosynthetic pathways being retained. This parameter enables users to regulate the substructure decomposition process, reducing artifacts that may arise from excessive decomposition. Usually, values between 0.3 and 0.7 are commonly used for this parameter.
 
-6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "netowrk_node" Abbreviation columns to identify and select specific lipid class names.
+6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "supported_lipid_class" Abbreviation columns to identify and select specific lipid class names.
+[See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-7. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
+8. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
 
-8. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
+9. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+[See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-9. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "netowrk_node" Abbreviation columns.
-    
+10. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+[See supported lipid class](readme_fig_table/supported_lipid_class.csv)
+
 Users can fine-tune these parameters to achieve optimal results.</font>
 
 ```{r lipid_species substructure analysis 1}
