@@ -58,7 +58,11 @@ You can refer to the ‘supported_lipid_class.csv’ file for the supported lipi
 
 [Download supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-[Download example dataset 1](readme_fig_table/example_dataset1.csv)
+[Download example dataset 1 (FA)](readme_fig_table/example_dataset_FA.csv)
+
+[Download example dataset 1 (Lipid class)](readme_fig_table/example_dataset_LipidClass.csv)
+
+[Download example dataset 1 (Lipid species)](readme_fig_table/example_dataset_LipidSpecies.csv)
 
 [Download example dataset 2](readme_fig_table/example_dataset2.csv)
 
@@ -68,20 +72,18 @@ You can refer to the ‘supported_lipid_class.csv’ file for the supported lipi
 ```{r Upload lipidomics data and process format}
 
 #Expression table of example lipidomics dataset
-file <- '/Users/linwj/Desktop/iLipidome_web'
-
-example_dataset_FA <- read.csv(file.path(file, 'Code/Documentation/exp.csv'))
-example_dataset_LipidClass <- read.csv(file.path(file, 'Code/Documentation/exp.csv'))
-example_dataset_LipidSpecies <- read.csv(file.path(file, 'web_function/exp2.csv'))
 
 head(example_dataset_FA)
+head(example_dataset_LipidClass)
+head(example_dataset_LipidSpecies)
+
 ```
 ![image](readme_fig_table/FA_analysis/Dataset.png)
 ## 1. FA substructure analysis
 
 
 ### 1-1. Run analysis
- <font size="3"> The FA_substructure_analysis function allows users to conduct fatty acid substructure analysis and generates visualizations in the form of tables, bar plots, and networks. These visualizations assist in understanding and interpreting the results of the analysis. The parameters are listed below:\
+ <font size="3"> The FA_substructure_analysis function allows users to conduct fatty acid substructure analysis and generates visualizations in the form of tables, bar plots, and networks. These visualizations assist in understanding and interpreting the results of the analysis. The parameters are listed below:
 
 1. exp_raw: The input should be a data frame with lipid species as rows and samples as columns. The first column should contain lipid names, and the remaining columns should consist of numeric lipid values.
 
@@ -91,10 +93,10 @@ head(example_dataset_FA)
 
 4. exp: An integer vector specifying the samples in the experimental group within the lipid expression table.
 
-5. unmapped_FA: NULL or a character vector that allows users to specify which fatty acids (FAs) should be ignored. Users can refer to the "FA_network" S1 and P1 columns to identify and select specific fatty acid names. Due to limitations in mass spectrometry, precise double bond locations for fatty acids are often not available in lipidomics data. As a result, certain fatty acids may have multiple candidate mappings in the fatty acid network. However, some fatty acid isomers may be dominant, while others may be negligible. For exmaple, the major isomer of FA 20:4 is omega-6, not omega-3. Treating all isomers equally in the substructure calculation may not accurately reflect their true abundance. This parameter enables users to select low-expressed fatty acid isomers to exclude from decomposition into substructures within the fatty acid network, therefore improving the accuracy of calculations.
+5. unmapped_FA: NULL or a character vector that allows users to specify which fatty acids (FAs) should be ignored. Users can refer to the "S1" and "P1" columns of "FA_network" to identify and select specific fatty acid names. Due to limitations in mass spectrometry, precise double bond locations for fatty acids are often not available in lipidomics data. As a result, certain fatty acids may have multiple candidate mappings in the fatty acid network. However, some fatty acid isomers may be dominant, while others may be negligible. For exmaple, the major isomer of FA 20:4 is omega-6, not omega-3. Treating all isomers equally in the substructure calculation may not accurately reflect their true abundance. This parameter enables users to select low-expressed fatty acid isomers to exclude from decomposition into substructures within the fatty acid network, therefore improving the accuracy of calculations.
 [See FA network](readme_fig_table/required_data/FA_network.csv)
 
-6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to the "FA_network" S1 and P1 columns to identify and select specific fatty acid names.
+6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to the "S1" and "P1" columns of "FA_network" to identify and select specific fatty acid names.
 [See FA network](readme_fig_table/required_data/FA_network.csv)
 
 8. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
@@ -102,7 +104,7 @@ head(example_dataset_FA)
 9. add_reaction: NULL or a data frame consisting of three columns: "from", "to", and "pathway" to add the fatty acid reactions. The fatty acids in the "from" and "to" columns should adhere to the format [FA chain length]:[FA double bonds];[FA oxygens]. The prefixes "w9-", "w7-", "w6-", and "w3-" can also be included to provide information about the double bond position. The "pathway" column in the table can take one of the following values: "Non_essential_FA_synthesis", "Omega_6_FA_synthesis", "Omega_3_FA_synthesis", or "Unknown".
 [See FA network](readme_fig_table/required_data/FA_network.csv)
 
-11. delete_reaction: NULL or a data frame consisting of two columns: "from" and "to" delete the fatty acid reactions. The fatty acids in the "from" and "to" columns should correspond to the fatty acids listed in the "FA_network" S1 and P1 columns.
+11. delete_reaction: NULL or a data frame consisting of two columns: "from" and "to" delete the fatty acid reactions. The fatty acids in the "from" and "to" columns should correspond to the fatty acids listed in the "S1" and "P1" columns of "FA_network".
 [See FA network](readme_fig_table/required_data/FA_network.csv)
 
 Users can fine-tune these parameters to achieve optimal results.</font>
@@ -122,7 +124,7 @@ FA_substructure_result <-
 ![image](readme_fig_table/FA_analysis/Run.png)
 
  
-### 1-2. Differential expression analysis
+### 1-2. Differential expression results
 
  <font size="3">  In this section, we present the results of the differential expression analysis conducted on the substructure-transformed data. </font>
 
@@ -216,7 +218,7 @@ FA_substructure_result[[9]]
 
 
 ### 2-1. Run analysis
-<font size="3"> The lipid_class_substructure_analysis function allows users to conduct lipid class substructure analysis and generates visualizations in the form of tables, bar plots, and networks. These visualizations assist in understanding and interpreting the results of the analysis. The parameters are listed below:\
+<font size="3"> The lipid_class_substructure_analysis function allows users to conduct lipid class substructure analysis and generates visualizations in the form of tables, bar plots, and networks. These visualizations assist in understanding and interpreting the results of the analysis. The parameters are listed below:
 
 1. exp_raw: The input should be a data frame with lipid species as rows and samples as columns. The first column should contain lipid names, and the remaining columns should consist of numeric lipid values.
 
@@ -226,15 +228,15 @@ FA_substructure_result[[9]]
 
 4. exp: An integer vector specifying the samples in the experimental group within the lipid expression table.
 
-5. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "supported_lipid_class" Abbreviation columns to identify and select specific lipid class names.
+5. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to the "Abbreviation" columns of "supported_lipid_class" to identify and select specific lipid class names.
 [See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
 7. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
 
-8. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+8. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "Abbreviation" columns of "supported_lipid_class".
 [See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-10. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+10. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "Abbreviation" columns of "supported_lipid_class".
 [See supported lipid class](readme_fig_table/supported_lipid_class.csv) 
 
 Users can fine-tune these parameters to achieve optimal results.</font>
@@ -346,7 +348,7 @@ lipid_class_substructure_result[[9]]
 
 
 ### 3-1. Run analysis
-<font size="3"> The lipid_species_substructure_analysis function allows users to conduct lipid species substructure analysis and generates visualizations in the form of tables, bar plots, and networks. These visualizations assist in understanding and interpreting the results of the analysis. The parameters are listed below:\
+<font size="3"> The lipid_species_substructure_analysis function allows users to conduct lipid species substructure analysis and generates visualizations in the form of tables, bar plots, and networks. These visualizations assist in understanding and interpreting the results of the analysis. The parameters are listed below:
 
 1. exp_raw: The input should be a data frame with lipid species as rows and samples as columns. The first column should contain lipid names, and the remaining columns should consist of numeric lipid values.
 
@@ -358,15 +360,14 @@ lipid_class_substructure_result[[9]]
 
 5. non_missing_pct: A value between 0 and 1 to set the threshold for the percentage of non-missing values in a biosynthetic pathway. Increasing this value will result in fewer biosynthetic pathways being retained. This parameter enables users to regulate the substructure decomposition process, reducing artifacts that may arise from excessive decomposition. Usually, values between 0.3 and 0.7 are commonly used for this parameter.
 
-6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Users can refer to "supported_lipid_class" Abbreviation columns to identify and select specific lipid class names.
-[See supported lipid class](readme_fig_table/supported_lipid_class.csv)
+6. exo_lipid: NULL or character vector used to specify the exogenous lipid treatment in the analysis. If an exogenous lipid treatment is involved in the study, it can significantly influence the results of substructure calculation based on biosynthetic pathways. To address this issue, iLipidome provides a parameter for users to exclude the effects of the exogenous treatment. Please ensure that the lipid names you enter correspond to those present in the 'feature' column of the uploaded dataset.
 
 8. species: "human", "mouse", or "rat" can be used to label species-specific genes for lipid reactions.
 
-9. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+9. add_reaction: NULL or a data frame consisting of three columns: "from" and "to" add the lipid reactions. The lipids in the "from" and "to" columns should be included in the "Abbreviation" columns of "supported_lipid_class". The example is the same as the one used in the lipid class analysis.
 [See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
-10. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "supported_lipid_class" Abbreviation columns.
+10. delete_reaction: NULL or a data frame consisting of three columns: "from" and "to" delete the lipid reactions. The lipids in the "from" and "to" columns should be included in the "Abbreviation" columns of "supported_lipid_class". The example is the same as the one used in the lipid class analysis.
 [See supported lipid class](readme_fig_table/supported_lipid_class.csv)
 
 Users can fine-tune these parameters to achieve optimal results.</font>
