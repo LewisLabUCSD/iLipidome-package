@@ -284,8 +284,8 @@ lipid_class_substructure_analysis <- function(exp_raw, method, ctrl, exp,
                                 paste0("<i style='color:#0000FF'>", node2, "</i>"))) %>% 
       mutate(edge_color=paste0(node1_color,node2_color))
     
-    
-    
+    reaction_data <- reaction_data %>% arrange(desc(perturbation_score))
+
     reaction_data_fig <- reaction_data %>%
       ggplot(aes(x=perturbation_score, y=reorder(edge_name, perturbation_score), 
                  fill=Mode))+
