@@ -230,7 +230,8 @@ lipid_species_substructure_analysis <- function(exp_raw, method, ctrl, exp,
     }
     path_data$path <- str_split(path_data$path, ' --> ') %>% map_chr(~str_c(.x[[1]], ' --> ', last(.x)))
     path_data$path <- add_suffix(path_data$path)
-    
+    path_data$path <- str_c(path_data$path, '\n(Pathway: ', path_data$rep_sub_path,')')
+
     path_data_fig <- path_data %>% 
       mutate(path=factor(.$path, levels = .$path)) %>% 
       ggplot(aes(x=reorder(path, cal_score), y=cal_score, fill=Type))+
@@ -293,7 +294,7 @@ lipid_species_substructure_analysis <- function(exp_raw, method, ctrl, exp,
                                 paste0("<i style='color:#0000FF'>", node2, "</i>"))) %>% 
       mutate(edge_color=paste0(node1_color,node2_color))
     
-    
+    reaction_data <- reaction_data %>% arrange(desc(perturbation_score))
     
     reaction_data_fig <- reaction_data %>%
       ggplot(aes(x=perturbation_score, y=reorder(edge_name, perturbation_score), 
